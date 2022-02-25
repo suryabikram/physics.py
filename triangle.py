@@ -1,34 +1,17 @@
-# This is a sample Python script.
-# to import math  value
-import math
-
-
-# to check if  triangle is equilateral or not
-def is_valid_triangle(a, b, c):
-    if a == b == c:
-        return True
-    else:
-        return False
-
-
-# to verify triangle is rather equilateral or right triangle
-def type_of_triangle(a, b, c):
-    if a == b and b == c:
-        print('this is an equilateral triangle')
-    else:
-        print("this is not an equilateral triangle.")
-        print("this is right triangle.")
-
-
-# Reading Three Sides ( to get the input of the length of triangle sides.)
-a = float(input(' please enter side a: '))
-b = float(input(' please enter side b: '))
-c = float(input(' please enter side c: '))
-
-print("True", a == b == c)
-print("Hypotenuse is", math.sqrt(a ** 2 + b ** 2))  # using  simple Pythagorean theorem
-if is_valid_triangle(a, b, c):
-    type_of_triangle(a, b, c)
-else:
-    print('this is not an equilateral triangle \
-               this is right triangle ')
+try:
+    f = open(input("Enter input filename:   "))
+    d = {}
+    for line in f:
+        for word in line.split():
+            if word not in d:
+                d[word] = 0
+            d[word] += 1
+    f.close()
+    num_words = 0
+    for word, count in reversed(sorted(d.items(), key=lambda x: x[1])):
+        print(word, count)
+        num_words += 1
+        if num_words == 30:
+            break
+except:
+    print("File not found!")
