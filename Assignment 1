@@ -1,1 +1,17 @@
-
+# asking the file name
+fileName = input("Enter the file name:")
+# opening the file to read
+f = open(fileName)
+# using dictionary to store the value
+theDictionary = dict()
+for line in f:
+    # we are splitting the every word to count
+    words = line.split()
+    for word in words:
+        if word in theDictionary:
+            theDictionary[word] = theDictionary[word]+1
+        else:
+            theDictionary[word] = 1
+print(theDictionary)
+# in this loop, we are going through the dictionary of counts
+# to find the frequency of the word that is stored in dictionary.
